@@ -1,7 +1,7 @@
 #include "engine/engine.h"
 #include "utility/utility.h"
 
-int main(int argv, const char* argc[]) {
+int main(int argc, char* argv[]) {
 	SOLAS_EngineSettings settings = {
 		.title = "Solas",
 
@@ -14,15 +14,16 @@ int main(int argv, const char* argc[]) {
 	SOLAS_Engine* engine = SOLAS_CreateEngine(&settings);
 	if (!engine) return 1;
 
-	bool running = true;
-	while (running) {
-		SDL_Event event;
-		while (SDL_PollEvent(&event)) {
-			if (event.type == SDL_QUIT)
-				running = false;
-		}
+	while (engine->active) {
+		glViewport(0, 0, settings.windowWidth, settings.windowHeight);
+		glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+		glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+
+		SDL_GL_SwapWindow(engine->window);
+
+		SOLAS_ProcessEvents(engine);
 	}
 
-	SOLAS_DestroyEngine(&engine);
+	SOLAS_DestroyEngine(engine);
 	return 0;
 }
