@@ -18,6 +18,14 @@ set(CMAKE_C_EXTENSIONS OFF)
 	add_subdirectory("./dependencies/SDL2")
 	include_directories("./dependencies/SDL2/include")
 
-add_executable(${PROJECT_NAME} WIN32 ${PROJECT_FILES})
-target_link_libraries(${PROJECT_NAME} SDL2main SDL2-static)
+	#- GLAD
+	include_directories("./dependencies/glad/include")
+	file(GLOB_RECURSE GLAD_FILES "./dependencies/glad/src/*.c")
+
+	#- GLFW
+	add_subdirectory("./dependencies/glfw")
+	include_directories("./dependencies/glfw/include")
+
+add_executable(${PROJECT_NAME} WIN32 ${PROJECT_FILES} ${GLAD_FILES})
+target_link_libraries(${PROJECT_NAME} SDL2main SDL2-static opengl32 glfw)
 
