@@ -3,8 +3,7 @@
 
 #include <SDL.h>
 #include <stdint.h>
-#include <glad/gl.h>
-#include <GLFW/glfw3.h>
+#include <stdbool.h>
 #include "engine_settings.h"
 
 /// Defines an active engine state.  

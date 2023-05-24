@@ -1,7 +1,10 @@
 #include <stdlib.h>
 #include "engine.h"
 #include "../utility/utility.h"
-#include "GLFW/glfw3.h"
+
+// GL
+#include <glad/gl.h>
+#include <GLFW/glfw3.h>
 
 #define SOLAS_SDL_INIT_FLAGS SDL_INIT_VIDEO		\
 							| SDL_INIT_AUDIO	\
