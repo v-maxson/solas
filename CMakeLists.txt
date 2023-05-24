@@ -4,6 +4,7 @@
 project (
 	"solas"
 	LANGUAGES C
+	VERSION 0.1.0
 )
 
 set(CMAKE_C_STANDARD 99)
