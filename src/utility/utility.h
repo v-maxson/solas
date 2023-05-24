@@ -12,6 +12,6 @@ const char* SOLAS_Format(const char* fmt, ...);
 void SOLAS_FreeFormat(const char* str);
 
 /// Serves an error popup.
-void SOLAS_ErrorMessage(const char* message);
+#define SOLAS_ErrorMessage(message) SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Solas Error", message, NULL);
 
 #endif // !SOLAS_UTILITY_H
