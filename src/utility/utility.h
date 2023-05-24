@@ -2,6 +2,7 @@
 #define SOLAS_UTILITY_H
 
 #include "arena.h"
+#include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -12,6 +13,8 @@ const char* SOLAS_Format(const char* fmt, ...);
 void SOLAS_FreeFormat(const char* str);
 
 /// Serves an error popup.
-#define SOLAS_ErrorMessage(message) SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Solas Error", message, NULL);
+#define SOLAS_ErrorMessage(message) \
+	int msgBox = SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Solas Error", message, NULL); \
+	if (msgBox < 0) printf("Solas Error: %s", message);
 
 #endif // !SOLAS_UTILITY_H
