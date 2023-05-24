@@ -1,9 +1,9 @@
 #ifndef SOLAS_ENGINE_SETTINGS_H
 #define SOLAS_ENGINE_SETTINGS_H
 
+#include <SDL.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include <SDL.h>
 
 typedef struct SOLAS_EngineSettings {
 	// Information
